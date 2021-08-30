@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="emqx_ip" elementType="Argument">
             <stringProp name="Argument.name">emqx_ip</stringProp>
-            <stringProp name="Argument.value">${__property(emqx_ip,,34.219.115.160)}</stringProp>
+            <stringProp name="Argument.value">${__property(emqx_ip,,)}</stringProp>
             <stringProp name="Argument.desc">emqx server ip</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -339,7 +339,7 @@
         <net.xmeter.samplers.DisConnectSampler guiclass="net.xmeter.gui.DisConnectSamplerUI" testclass="net.xmeter.samplers.DisConnectSampler" testname="MQTT DisConnect" enabled="true"/>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
