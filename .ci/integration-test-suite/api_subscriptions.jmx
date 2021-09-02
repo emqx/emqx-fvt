@@ -98,7 +98,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Subscriptions List" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Subscriptions" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -168,7 +168,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Get Token" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$..token</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
@@ -210,7 +210,7 @@
           <stringProp name="mqtt.topic_name">${test_topic}</stringProp>
           <stringProp name="mqtt.qos_level">1</stringProp>
           <boolProp name="mqtt.add_timestamp">false</boolProp>
-          <boolProp name="mqtt.debug_response">false</boolProp>
+          <boolProp name="mqtt.debug_response">true</boolProp>
           <stringProp name="mqtt.sample_condition">specified elapsed time (ms)</stringProp>
           <stringProp name="mqtt.sample_condition_value">1000</stringProp>
         </net.xmeter.samplers.SubSampler>
@@ -315,7 +315,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Get Clientid" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">clientid</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$..clientid</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
@@ -553,15 +553,6 @@
             <boolProp name="ISREGEX">true</boolProp>
           </JSONPathAssertion>
           <hashTree/>
-          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Response Assertion Count" enabled="true">
-            <stringProp name="JSON_PATH">$..count</stringProp>
-            <stringProp name="EXPECTED_VALUE">1</stringProp>
-            <boolProp name="JSONVALIDATION">true</boolProp>
-            <boolProp name="EXPECT_NULL">false</boolProp>
-            <boolProp name="INVERT">false</boolProp>
-            <boolProp name="ISREGEX">true</boolProp>
-          </JSONPathAssertion>
-          <hashTree/>
         </hashTree>
         <net.xmeter.samplers.DisConnectSampler guiclass="net.xmeter.gui.DisConnectSamplerUI" testclass="net.xmeter.samplers.DisConnectSampler" testname="MQTT DisConnect" enabled="true"/>
         <hashTree>
@@ -607,7 +598,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <net.xmeter.samplers.SubSampler guiclass="net.xmeter.gui.SubSamplerUI" testclass="net.xmeter.samplers.SubSampler" testname="MQTT Sub Sampler-share" enabled="true">
+        <net.xmeter.samplers.SubSampler guiclass="net.xmeter.gui.SubSamplerUI" testclass="net.xmeter.samplers.SubSampler" testname="MQTT Sub Sampler --share" enabled="true">
           <stringProp name="mqtt.topic_name">${shared_topic}</stringProp>
           <stringProp name="mqtt.qos_level">1</stringProp>
           <boolProp name="mqtt.add_timestamp">false</boolProp>
@@ -654,7 +645,18 @@
           <hashTree/>
         </hashTree>
         <net.xmeter.samplers.DisConnectSampler guiclass="net.xmeter.gui.DisConnectSamplerUI" testclass="net.xmeter.samplers.DisConnectSampler" testname="MQTT DisConnect" enabled="true"/>
-        <hashTree/>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1259833018">Successful</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /subscriptions" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
@@ -677,7 +679,7 @@
           <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Response Assertion Count" enabled="true">
             <stringProp name="JSON_PATH">$..count</stringProp>
             <stringProp name="EXPECTED_VALUE">0</stringProp>
-            <boolProp name="JSONVALIDATION">false</boolProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
             <boolProp name="EXPECT_NULL">false</boolProp>
             <boolProp name="INVERT">false</boolProp>
             <boolProp name="ISREGEX">true</boolProp>
