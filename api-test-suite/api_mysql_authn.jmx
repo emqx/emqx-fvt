@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="emqx_ip" elementType="Argument">
             <stringProp name="Argument.name">emqx_ip</stringProp>
-            <stringProp name="Argument.value">${__property(emqx_ip,,127.0.0.1)}</stringProp>
+            <stringProp name="Argument.value">${__property(emqx_ip,,34.223.40.33)}</stringProp>
             <stringProp name="Argument.desc">emqx server ip</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -39,7 +39,7 @@
           </elementProp>
           <elementProp name="mysql_ip" elementType="Argument">
             <stringProp name="Argument.name">mysql_ip</stringProp>
-            <stringProp name="Argument.value">${__property(mysql_ip,,127.0.0.1)}</stringProp>
+            <stringProp name="Argument.value">${__property(mysql_ip,,122.112.146.22)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="mysql_user" elementType="Argument">
@@ -265,6 +265,10 @@ VALUES
             <boolProp name="INVERT">false</boolProp>
             <boolProp name="ISREGEX">true</boolProp>
           </JSONPathAssertion>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">3000</stringProp>
+          </ConstantTimer>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /authentication" enabled="true">
