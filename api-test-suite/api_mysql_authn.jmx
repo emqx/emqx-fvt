@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="emqx_ip" elementType="Argument">
             <stringProp name="Argument.name">emqx_ip</stringProp>
-            <stringProp name="Argument.value">${__property(emqx_ip,,34.223.40.33)}</stringProp>
+            <stringProp name="Argument.value">${__property(emqx_ip,,127.0.0.1)}</stringProp>
             <stringProp name="Argument.desc">emqx server ip</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -39,7 +39,7 @@
           </elementProp>
           <elementProp name="mysql_ip" elementType="Argument">
             <stringProp name="Argument.name">mysql_ip</stringProp>
-            <stringProp name="Argument.value">${__property(mysql_ip,,122.112.146.22)}</stringProp>
+            <stringProp name="Argument.value">${__property(mysql_ip,,127.0.0.1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="mysql_user" elementType="Argument">
@@ -237,25 +237,7 @@ VALUES
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-	&quot;server&quot;: &quot;${mysql_ip}:3306&quot;,&#xd;
-	&quot;username&quot;: &quot;${mysql_user}&quot;,&#xd;
-	&quot;password&quot;: &quot;${mysql_pwd}&quot;,&#xd;
-	&quot;database&quot;: &quot;${database}&quot;,&#xd;
-	&quot;pool_size&quot;: 8,&#xd;
-	&quot;auto_reconnect&quot;: true,&#xd;
-	&quot;ssl&quot;: {&#xd;
-		&quot;enable&quot;: false&#xd;
-	},&#xd;
-	&quot;query&quot;: &quot;SELECT password_hash FROM mqtt_user_test where username = ${username} LIMIT 1&quot;,&#xd;
-	&quot;password_hash_algorithm&quot;: {&#xd;
-		&quot;name&quot;: &quot;plain&quot;,&#xd;
-		&quot;salt_position&quot;: &quot;prefix&quot;&#xd;
-	},&#xd;
-	&quot;query_timeout&quot;: &quot;5s&quot;,&#xd;
-	&quot;backend&quot;: &quot;mysql&quot;,&#xd;
-	&quot;mechanism&quot;: &quot;password-based&quot;&#xd;
-}</stringProp>
+                <stringProp name="Argument.value">{&quot;server&quot;:&quot;${mysql_ip}:3306&quot;,&quot;username&quot;:&quot;${mysql_user}&quot;,&quot;password&quot;:&quot;${mysql_pwd}&quot;,&quot;database&quot;:&quot;${database}&quot;,&quot;pool_size&quot;:8,&quot;auto_reconnect&quot;:true,&quot;ssl&quot;:{&quot;enable&quot;:false,&quot;verify&quot;:&quot;verify_none&quot;},&quot;query&quot;:&quot;SELECT password_hash FROM mqtt_user_test where username = ${username} LIMIT 1&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;,&quot;salt_position&quot;:&quot;suffix&quot;},&quot;query_timeout&quot;:&quot;5s&quot;,&quot;backend&quot;:&quot;mysql&quot;,&quot;mechanism&quot;:&quot;password-based&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
