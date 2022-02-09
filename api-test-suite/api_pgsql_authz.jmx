@@ -39,12 +39,22 @@
           </elementProp>
           <elementProp name="pgsql_ip" elementType="Argument">
             <stringProp name="Argument.name">pgsql_ip</stringProp>
-            <stringProp name="Argument.value">${__property(emqx_ip,,127.0.0.1)}</stringProp>
+            <stringProp name="Argument.value">${__property(pgsql_ip,,127.0.0.1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="pgsql_name" elementType="Argument">
             <stringProp name="Argument.name">pgsql_name</stringProp>
-            <stringProp name="Argument.value">postgres</stringProp>
+            <stringProp name="Argument.value">${__property(pgsql_name,,postgres)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pgsql_pwd" elementType="Argument">
+            <stringProp name="Argument.name">pgsql_pwd</stringProp>
+            <stringProp name="Argument.value">${__property(pgsql_pwd,,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dbname" elementType="Argument">
+            <stringProp name="Argument.name">dbname</stringProp>
+            <stringProp name="Argument.value">${__property(dbname,,mqtt)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -143,11 +153,11 @@
           <stringProp name="connectionAge">5000</stringProp>
           <stringProp name="connectionProperties"></stringProp>
           <stringProp name="dataSource">pgsql</stringProp>
-          <stringProp name="dbUrl">jdbc:postgresql://${pgsql_ip}:5432/mqtt</stringProp>
+          <stringProp name="dbUrl">jdbc:postgresql://${pgsql_ip}:5432/${dbname}</stringProp>
           <stringProp name="driver">org.postgresql.Driver</stringProp>
           <stringProp name="initQuery"></stringProp>
           <boolProp name="keepAlive">true</boolProp>
-          <stringProp name="password"></stringProp>
+          <stringProp name="password">${pgsql_pwd}</stringProp>
           <stringProp name="poolMax">0</stringProp>
           <boolProp name="preinit">false</boolProp>
           <stringProp name="timeout">10000</stringProp>
@@ -245,7 +255,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;server&quot;:&quot;${pgsql_ip}:5432&quot;,&quot;username&quot;:&quot;postgres&quot;,&quot;password&quot;:&quot;&quot;,&quot;database&quot;:&quot;mqtt&quot;,&quot;pool_size&quot;:8,&quot;auto_reconnect&quot;:true,&quot;ssl&quot;:{&quot;enable&quot;:false},&quot;query&quot;:&quot;SELECT action, permission, topic FROM mqtt_acl_test where username = ${username}&quot;,&quot;type&quot;:&quot;postgresql&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;server&quot;:&quot;${pgsql_ip}:5432&quot;,&quot;username&quot;:&quot;${pgsql_name}&quot;,&quot;password&quot;:&quot;${pgsql_pwd}&quot;,&quot;database&quot;:&quot;${dbname}&quot;,&quot;pool_size&quot;:8,&quot;auto_reconnect&quot;:true,&quot;ssl&quot;:{&quot;enable&quot;:false},&quot;query&quot;:&quot;SELECT action, permission, topic FROM mqtt_acl_test where username = ${username}&quot;,&quot;type&quot;:&quot;postgresql&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -362,7 +372,7 @@
           <hashTree/>
         </hashTree>
         <net.xmeter.samplers.ConnectSampler guiclass="net.xmeter.gui.ConnectSamplerUI" testclass="net.xmeter.samplers.ConnectSampler" testname="MQTT Connect" enabled="true">
-          <stringProp name="mqtt.server">127.0.0.1</stringProp>
+          <stringProp name="mqtt.server">${emqx_ip}</stringProp>
           <stringProp name="mqtt.port">1883</stringProp>
           <stringProp name="mqtt.version">3.1</stringProp>
           <stringProp name="mqtt.conn_timeout">10</stringProp>
@@ -423,8 +433,7 @@
         <net.xmeter.samplers.DisConnectSampler guiclass="net.xmeter.gui.DisConnectSamplerUI" testclass="net.xmeter.samplers.DisConnectSampler" testname="MQTT DisConnect" enabled="true"/>
         <hashTree/>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Close PgSQL Authn --enable=false " enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PUT/authorization/sources/${type_pgsql}" enabled="true">
@@ -435,9 +444,9 @@
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
 	&quot;auto_reconnect&quot;: true,&#xd;
-	&quot;database&quot;: &quot;mqtt&quot;,&#xd;
+	&quot;database&quot;: &quot;${dbname}&quot;,&#xd;
 	&quot;enable&quot;: false,&#xd;
-	&quot;password&quot;: &quot;&quot;,&#xd;
+	&quot;password&quot;: &quot;${pgsql_pwd}&quot;,&#xd;
 	&quot;pool_size&quot;: 8,&#xd;
 	&quot;query&quot;: &quot;SELECT action, permission, topic FROM mqtt_acl_test where username = ${username}&quot;,&#xd;
 	&quot;server&quot;: &quot;${pgsql_ip}:5432&quot;,&#xd;
@@ -445,7 +454,7 @@
 		&quot;enable&quot;: false&#xd;
 	},&#xd;
 	&quot;type&quot;: &quot;postgresql&quot;,&#xd;
-	&quot;username&quot;: &quot;postgres&quot;&#xd;
+	&quot;username&quot;: &quot;${pgsql_name}&quot;&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
@@ -478,7 +487,7 @@
             <hashTree/>
           </hashTree>
           <net.xmeter.samplers.ConnectSampler guiclass="net.xmeter.gui.ConnectSamplerUI" testclass="net.xmeter.samplers.ConnectSampler" testname="MQTT Connect" enabled="true">
-            <stringProp name="mqtt.server">127.0.0.1</stringProp>
+            <stringProp name="mqtt.server">${emqx_ip}</stringProp>
             <stringProp name="mqtt.port">1883</stringProp>
             <stringProp name="mqtt.version">3.1</stringProp>
             <stringProp name="mqtt.conn_timeout">10</stringProp>
@@ -540,8 +549,7 @@
           <hashTree/>
         </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="ReOpen PgSQL Authn --enable=true" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PUT/authorization/sources/${type_pgsql}" enabled="true">
@@ -552,9 +560,9 @@
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
 	&quot;auto_reconnect&quot;: true,&#xd;
-	&quot;database&quot;: &quot;mqtt&quot;,&#xd;
+	&quot;database&quot;: &quot;${dbname}&quot;,&#xd;
 	&quot;enable&quot;: true,&#xd;
-	&quot;password&quot;: &quot;&quot;,&#xd;
+	&quot;password&quot;: &quot;${pgsql_pwd}&quot;,&#xd;
 	&quot;pool_size&quot;: 8,&#xd;
 	&quot;query&quot;: &quot;SELECT action, permission, topic FROM mqtt_acl_test where username = ${username}&quot;,&#xd;
 	&quot;server&quot;: &quot;${pgsql_ip}:5432&quot;,&#xd;
@@ -562,7 +570,7 @@
 		&quot;enable&quot;: false&#xd;
 	},&#xd;
 	&quot;type&quot;: &quot;postgresql&quot;,&#xd;
-	&quot;username&quot;: &quot;postgres&quot;&#xd;
+	&quot;username&quot;: &quot;${pgsql_name}&quot;&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
@@ -595,7 +603,7 @@
             <hashTree/>
           </hashTree>
           <net.xmeter.samplers.ConnectSampler guiclass="net.xmeter.gui.ConnectSamplerUI" testclass="net.xmeter.samplers.ConnectSampler" testname="MQTT Connect" enabled="true">
-            <stringProp name="mqtt.server">127.0.0.1</stringProp>
+            <stringProp name="mqtt.server">${emqx_ip}</stringProp>
             <stringProp name="mqtt.port">1883</stringProp>
             <stringProp name="mqtt.version">3.1</stringProp>
             <stringProp name="mqtt.conn_timeout">10</stringProp>
