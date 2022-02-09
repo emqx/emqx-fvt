@@ -49,7 +49,7 @@
           </elementProp>
           <elementProp name="mysql_pwd" elementType="Argument">
             <stringProp name="Argument.name">mysql_pwd</stringProp>
-            <stringProp name="Argument.value">${__property(mysql_pwd,,123456789)}</stringProp>
+            <stringProp name="Argument.value">${__property(mysql_pwd,,public)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="database" elementType="Argument">
@@ -267,7 +267,7 @@ VALUES
           </JSONPathAssertion>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">3000</stringProp>
+            <stringProp name="ConstantTimer.delay">15000</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
