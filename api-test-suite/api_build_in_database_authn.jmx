@@ -163,7 +163,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;user_id_type&quot;:&quot;username&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;},&quot;backend&quot;:&quot;built-in-database&quot;,&quot;mechanism&quot;:&quot;password-based&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;user_id_type&quot;:&quot;username&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;},&quot;backend&quot;:&quot;built_in_database&quot;,&quot;mechanism&quot;:&quot;password_based&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -186,7 +186,7 @@
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1153084187">password-based:built-in-database</stringProp>
+              <stringProp name="1153084187">password_based:built_in_database</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -413,7 +413,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;backend&quot;:&quot;built-in-database&quot;,&quot;enable&quot;:false,&quot;mechanism&quot;:&quot;password-based&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;},&quot;user_id_type&quot;:&quot;username&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&quot;backend&quot;:&quot;built_in_database&quot;,&quot;enable&quot;:false,&quot;mechanism&quot;:&quot;password_based&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;},&quot;user_id_type&quot;:&quot;username&quot;}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -479,7 +479,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;backend&quot;:&quot;built-in-database&quot;,&quot;enable&quot;:true,&quot;mechanism&quot;:&quot;password-based&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;},&quot;user_id_type&quot;:&quot;username&quot;}</stringProp>
+                  <stringProp name="Argument.value">{&quot;backend&quot;:&quot;built_in_database&quot;,&quot;enable&quot;:true,&quot;mechanism&quot;:&quot;password_based&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;},&quot;user_id_type&quot;:&quot;username&quot;}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -540,7 +540,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;backend&quot;:&quot;built-in-database&quot;,&quot;enable&quot;:true,&quot;mechanism&quot;:&quot;password-based&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;},&quot;user_id_type&quot;:&quot;clientid&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;backend&quot;:&quot;built_in_database&quot;,&quot;enable&quot;:true,&quot;mechanism&quot;:&quot;password_based&quot;,&quot;password_hash_algorithm&quot;:{&quot;name&quot;:&quot;plain&quot;},&quot;user_id_type&quot;:&quot;clientid&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -563,7 +563,7 @@
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1153084187">password-based:built-in-database</stringProp>
+              <stringProp name="1153084187">password_based:built_in_database</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>

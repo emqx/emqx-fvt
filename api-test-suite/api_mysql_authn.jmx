@@ -250,7 +250,7 @@ VALUES
 	},&#xd;
 	&quot;query_timeout&quot;: &quot;5s&quot;,&#xd;
 	&quot;backend&quot;: &quot;mysql&quot;,&#xd;
-	&quot;mechanism&quot;: &quot;password-based&quot;&#xd;
+	&quot;mechanism&quot;: &quot;password_based&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -273,7 +273,7 @@ VALUES
         <hashTree>
           <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion id" enabled="true">
             <stringProp name="JSON_PATH">$..backend</stringProp>
-            <stringProp name="EXPECTED_VALUE">password-based:mysql</stringProp>
+            <stringProp name="EXPECTED_VALUE">password_based:mysql</stringProp>
             <boolProp name="JSONVALIDATION">false</boolProp>
             <boolProp name="EXPECT_NULL">false</boolProp>
             <boolProp name="INVERT">false</boolProp>
@@ -329,7 +329,7 @@ VALUES
         <hashTree>
           <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion id" enabled="true">
             <stringProp name="JSON_PATH">$..backend</stringProp>
-            <stringProp name="EXPECTED_VALUE">password-based:mysql</stringProp>
+            <stringProp name="EXPECTED_VALUE">password_based:mysql</stringProp>
             <boolProp name="JSONVALIDATION">false</boolProp>
             <boolProp name="EXPECT_NULL">false</boolProp>
             <boolProp name="INVERT">false</boolProp>
@@ -484,7 +484,7 @@ VALUES
 	&quot;backend&quot;: &quot;mysql&quot;,&#xd;
 	&quot;database&quot;: &quot;mqtt&quot;,&#xd;
 	&quot;enable&quot;: false,&#xd;
-	&quot;mechanism&quot;: &quot;password-based&quot;,&#xd;
+	&quot;mechanism&quot;: &quot;password_based&quot;,&#xd;
 	&quot;password&quot;: &quot;123456789&quot;,&#xd;
 	&quot;password_hash_algorithm&quot;: {&#xd;
 		&quot;name&quot;: &quot;plain&quot;,&#xd;
@@ -564,7 +564,7 @@ VALUES
 	&quot;backend&quot;: &quot;mysql&quot;,&#xd;
 	&quot;database&quot;: &quot;mqtt&quot;,&#xd;
 	&quot;enable&quot;: true,&#xd;
-	&quot;mechanism&quot;: &quot;password-based&quot;,&#xd;
+	&quot;mechanism&quot;: &quot;password_based&quot;,&#xd;
 	&quot;password&quot;: &quot;123456789&quot;,&#xd;
 	&quot;password_hash_algorithm&quot;: {&#xd;
 		&quot;name&quot;: &quot;plain&quot;,&#xd;
@@ -741,7 +741,7 @@ VALUES
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${api_version}/authentication/password-based:mysql</stringProp>
+          <stringProp name="HTTPSampler.path">${api_version}/authentication/password_based:mysql</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -769,7 +769,7 @@ VALUES
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;server&quot;:&quot;${mysql_ip}:3306&quot;,&quot;username&quot;:&quot;${mysql_name}&quot;,&quot;password&quot;:&quot;${mysql_password}&quot;,&quot;database&quot;:&quot;mqtt&quot;,&quot;pool_size&quot;:8,&quot;auto_reconnect&quot;:true,&quot;ssl&quot;:{&quot;enable&quot;:false},&quot;query&quot;:&quot;SELECT password_hash FROM mqtt_user_test where username = ${username} LIMIT 1&quot;,&quot;password_hash_algorithm&quot;:&quot;plain&quot;,&quot;salt_position&quot;:&quot;prefix&quot;,&quot;query_timeout&quot;:&quot;4s&quot;,&quot;backend&quot;:&quot;mysql&quot;,&quot;mechanism&quot;:&quot;password-based&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;server&quot;:&quot;${mysql_ip}:3306&quot;,&quot;username&quot;:&quot;${mysql_name}&quot;,&quot;password&quot;:&quot;${mysql_password}&quot;,&quot;database&quot;:&quot;mqtt&quot;,&quot;pool_size&quot;:8,&quot;auto_reconnect&quot;:true,&quot;ssl&quot;:{&quot;enable&quot;:false},&quot;query&quot;:&quot;SELECT password_hash FROM mqtt_user_test where username = ${username} LIMIT 1&quot;,&quot;password_hash_algorithm&quot;:&quot;plain&quot;,&quot;salt_position&quot;:&quot;prefix&quot;,&quot;query_timeout&quot;:&quot;4s&quot;,&quot;backend&quot;:&quot;mysql&quot;,&quot;mechanism&quot;:&quot;password_based&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -778,7 +778,7 @@ VALUES
           <stringProp name="HTTPSampler.port">18083</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${api_version}/authentication/password-based:mysql</stringProp>
+          <stringProp name="HTTPSampler.path">${api_version}/authentication/password_based:mysql</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -817,7 +817,7 @@ VALUES
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${api_version}/authentication/password-based:mysql/move</stringProp>
+          <stringProp name="HTTPSampler.path">${api_version}/authentication/password_based:mysql/move</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -847,7 +847,7 @@ VALUES
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${api_version}/authentication/password-based:mysql</stringProp>
+          <stringProp name="HTTPSampler.path">${api_version}/authentication/password_based:mysql</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

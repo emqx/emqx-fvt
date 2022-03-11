@@ -237,7 +237,7 @@ VALUES
 		&quot;salt_position&quot;: &quot;prefix&quot;&#xd;
 	},&#xd;
 	&quot;backend&quot;: &quot;postgresql&quot;,&#xd;
-	&quot;mechanism&quot;: &quot;password-based&quot;&#xd;
+	&quot;mechanism&quot;: &quot;password_based&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -407,7 +407,7 @@ VALUES
 		&quot;salt_position&quot;: &quot;prefix&quot;&#xd;
 	},&#xd;
 	&quot;backend&quot;: &quot;postgresql&quot;,&#xd;
-	&quot;mechanism&quot;: &quot;password-based&quot;&#xd;
+	&quot;mechanism&quot;: &quot;password_based&quot;&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
@@ -490,7 +490,7 @@ VALUES
 		&quot;salt_position&quot;: &quot;prefix&quot;&#xd;
 	},&#xd;
 	&quot;backend&quot;: &quot;postgresql&quot;,&#xd;
-	&quot;mechanism&quot;: &quot;password-based&quot;&#xd;
+	&quot;mechanism&quot;: &quot;password_based&quot;&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
