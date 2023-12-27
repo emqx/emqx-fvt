@@ -1,2 +1,2 @@
 # emqx-fvt
-EMQ X Functional Verification Test Cases
+EMQX Functional Verification Test Cases
